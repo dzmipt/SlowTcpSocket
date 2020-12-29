@@ -63,6 +63,9 @@ public class Listener implements Runnable {
             } catch (Exception e) {
                 System.err.printf("Error on stream creator %d for port %d: %s%n", index, port, e);
                 e.printStackTrace(System.err);
+                try {
+                    sourceSocket.close();
+                } catch (IOException e1) {}
             }
         }
     }
